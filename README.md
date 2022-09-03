@@ -23,6 +23,7 @@ As user I can:
 1. setup ssl (use letsencrypt) 
 1. setup domain
 1. use docker for setup own supabase/parseplatform instance
+1. use CI/CD DevOps
 1. Use SPA framework (Vue2 / Vue3 / React)
 1. Do NOT use UI kit like vuetify/ bootstab-vue ect.. but you can use any css framework
 1. By default site should have dark theme
