@@ -26,9 +26,10 @@ As user I can:
 1. use CI/CD DevOps
 1. Use SPA framework (Vue2 / Vue3 / React)
 1. Do NOT use UI kit like vuetify/ bootstab-vue ect.. but you can use any css framework
-1. By default site should have dark theme
-1. Add light theme
-1. Admin panel:
+2. Add unit tests and e2e test
+3. By default site should have dark theme
+4. Add light theme
+5. Admin panel:
     - Add role/permisions 
     - Create default admin
     - Show users list 
