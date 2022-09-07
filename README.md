@@ -24,23 +24,23 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Base requirements
-Implement user authentication	### Compiles and hot-reloads for development
-    - login page	```
+Implement user authentication
+    - login page
     - register page	npm run serve
-    - forgot passwords page	```
+    - forgot passwords page
     - add 2FA	
-1. Dashboard page with game queue list. 	### Compiles and minifies for production
-As user I can:	```
-    - add game (get game info from API (https://api-docs.igdb.com/#about)	npm run build
-    - delete game	```
+1. Dashboard page with game queue list. 
+As user I can:
+    - add game (get game info from API (https://api-docs.igdb.com/#about)	
+    - delete game
     - add/edit note	
-    - add/delete tags	### Lints and fixes files
-    - change status (new, playing, finished)	```
-    - sort game list. Move game up/down. Use DnD(drag and drop) for sorting	npm run lint
-    - show only few last finished games on top of list If no sorting is applied	```
+    - add/delete tags
+    - change status (new, playing, finished)
+    - sort game list. Move game up/down. Use DnD(drag and drop) for sorting	
+    - show only few last finished games on top of list If no sorting is applied	
     - Allow filter list by status, tags, user input (filer by title)	
-1. use any BaaS as backend (https://supabase.com/, https://parseplatform.org/, https://firebase.google.com/ https://backendless.com/)	### Customize configuration
-1. use VDS/VPS for serve static files and make external api call	See [Configuration Reference](https://cli.vuejs.org/config/).
+1. use any BaaS as backend (https://supabase.com/, https://parseplatform.org/, https://firebase.google.com/ https://backendless.com/)
+1. use VDS/VPS for serve static files and make external api call (https://cli.vuejs.org/config/).
 1. setup ngnix	
 1. setup ssl (use letsencrypt) 	
 1. setup domain	
