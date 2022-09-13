@@ -58,3 +58,16 @@ As user I can:
     - Delete user	
     - change user role/permisions (make admin)	
     - Show user's game queue 
+
+## Design
+
+1. Theme and styles refence https://templatekit.tokokoo.com/knight/
+1. Wireframe https://wireframe.cc/pro/pp/9a4f1ecdd579031
+
+## Backend
+
+### Parse platform
+1. Documentation https://docs.parseplatform.org/js/guide/
+2. Dushboard http://game-queue.com:4040/
+
+    
