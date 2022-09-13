@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <LoginPage/>
+    <router-view></router-view>
+    <!-- <LoginPage/> -->
   </div>
 </template>
 
 <script setup>
-import LoginPage from '@/pages/LoginPage.vue';
-
+// import LoginPage from '@/pages/LoginPage.vue';
 </script>
 
 <style >

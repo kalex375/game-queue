@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent>
+    <form>
         <h3 class="title-form">Sign in</h3>
         <GqInput
         v-model="usernameOrEmail"
@@ -18,7 +18,7 @@
             />
             <label>Remember me</label>
             </div>
-            <a href="">Forgot password?</a>
+            <a @click="$router.push('/forgot-password')">Forgot password?</a>
         </div>
         <GqButton>Sign In</GqButton>
     </form>
@@ -33,19 +33,6 @@ import {ref} from 'vue';
 const usernameOrEmail = ref('')
 const password = ref('')
 const isRememberMe = ref(false)
-    // export default {
-    // data() {
-    //     return {
-    //         user: {
-    //             usernameOrEmail: "",
-    //             password: ""
-    //         },
-    //         checked: "false"
-    //     };
-    // },
-    // methods: {},
-    // components: { GqInput, GqButton }
-//}
 </script>
 
 <style scoped>
