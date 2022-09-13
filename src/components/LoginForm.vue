@@ -11,11 +11,14 @@
         type="password"
         placeholder="Password"
         />
-        <div class="lpgin__group">
+        <div class="login__group">
+            <div>
             <GqCheckbox
             v-model="isRememberMe"
-            >
-            </GqCheckbox>
+            />
+            <label>Remember me</label>
+            </div>
+            <a href="">Forgot password?</a>
         </div>
         <GqButton>Sign In</GqButton>
     </form>
@@ -46,16 +49,16 @@ const isRememberMe = ref(false)
 </script>
 
 <style scoped>
-form {
-    padding: 25px;
+
+/* form {
     display: flex;
     flex-direction: column;
-   /* color: white; */
-    margin: 0 auto;
-    align-items: center;
 }
 .title-form {
-    text-align: center;
-    color: #FFFF;
+   text-align: center;
 }
+.login__group {
+    display: flex;
+    justify-content: space-between;
+} */
 </style>

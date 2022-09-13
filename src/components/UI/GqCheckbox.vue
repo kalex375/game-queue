@@ -1,6 +1,5 @@
 <template>
 <input type="checkbox" id="checkbox" v-model="checked" />
-<label>Remember me</label>
 </template>
 
 <script setup>
