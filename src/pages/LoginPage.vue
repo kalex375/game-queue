@@ -13,7 +13,7 @@ import GqButton from "@/components/UI/GqButton.vue";
 </script>
 
 <style scoped>
-   /* .container {
+/* .container {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;

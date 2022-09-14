@@ -3,8 +3,8 @@
         <h3 class="title-form">Sign in</h3>
         <GqInput
         v-model="usernameOrEmail"
-        type="text"
-        placeholder="Username or email"
+        type="email"
+        placeholder="Email"
         />
         <GqInput
         v-model="password"
