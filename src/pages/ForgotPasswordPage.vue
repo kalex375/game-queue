@@ -1,10 +1,13 @@
 <template>
     <div>
         <h3>Forgot password</h3>
-        <p>Please enter your username or email address. 
+        <p>Please enter your email address. 
             You will receive an email with a confirmation code.
             </p>
-        <GqInput/>
+        <GqInput
+        v-model="email"
+        type="email"
+        />
         <GqButton>Continue</GqButton>
         <a @click="$router.push('/')">Back to sign-in</a>
     </div>
@@ -13,7 +16,9 @@
 <script setup>
 import GqInput from '@/components/UI/GqInput.vue';
 import GqButton from '@/components/UI/GqButton.vue';
-   
+import {ref} from 'vue';
+
+const email = ref('');
 </script>
 
 <style scoped>
