@@ -9,8 +9,8 @@
 <style scoped lang="scss">
 .btn {
   padding: 10px 15px;
-  background: #29144a;
-  border-radius: 50px;
-  color: #ffffff;
+  background: #ec44f7;
+  color: #eeeeee;
+  border: none;
 }
 </style>
