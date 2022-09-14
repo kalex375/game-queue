@@ -1,18 +1,16 @@
 <template>
-   <button class="btn">
-        <slot></slot>
-   </button>
+  <button class="btn">
+    <slot></slot>
+  </button>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style scoped>
+<style scoped lang="scss">
 .btn {
-    padding: 10px 15px;
-    background: #29144A;
-    border-radius: 50px;
-    color: #FFFFFF;
+  padding: 10px 15px;
+  background: #29144a;
+  border-radius: 50px;
+  color: #ffffff;
 }
 </style>
