@@ -8,7 +8,7 @@
         v-model="email"
         type="email"
         />
-        <GqButton>Continue</GqButton>
+        <GqButton @click="$router.push({name: 'verification'})">Continue</GqButton>
         <router-link :to="{ name: 'sign-in' }">Back to sign-in</router-link>
     </div>
 </template>
