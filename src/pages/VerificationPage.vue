@@ -17,7 +17,7 @@
             />
         </div>
         <p>If you didn't recelve a code!<span style="color: red;">Resend</span></p>
-        <GqButton>Verify</GqButton>
+        <GqButton @click="$router.push({name: 'reset-password'})">Verify</GqButton>
         <router-link :to="{name: 'forgot-password'}">Back to forgot password</router-link>
     </div>
 </template>
