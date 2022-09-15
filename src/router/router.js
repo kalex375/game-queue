@@ -17,6 +17,11 @@ const routes = [
         name: 'sign-up',
         component: () => import('@/pages/RegistrationPage.vue'),
     },
+    {
+        path: '/forgot-password/verification',
+        name: 'verification',
+        component: () => import('@/pages/VerificationPage.vue'),
+    },
 ]
 
 const router = createRouter({
