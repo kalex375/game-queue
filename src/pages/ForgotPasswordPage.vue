@@ -9,7 +9,7 @@
         type="email"
         />
         <GqButton>Continue</GqButton>
-        <router-link to="/">Back to sign-in</router-link>
+        <router-link :to="{ name: 'sign-in' }">Back to sign-in</router-link>
     </div>
 </template>
 

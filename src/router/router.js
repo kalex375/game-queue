@@ -1,20 +1,21 @@
 import {createRouter, createWebHistory} from "vue-router"
 import LoginPage from '@/pages/LoginPage'
-import ForgotPasswordPage from '@/pages/ForgotPasswordPage'
-import RegistrationPage from '@/pages/RegistrationPage'
 
 const routes = [
     {
         path: '/',
-        component: LoginPage
+        name: 'sign-in',
+        component: LoginPage,
     },
     {
         path: '/forgot-password',
-        component: ForgotPasswordPage
+        name: 'forgot-password',
+        component: () => import('@/pages/ForgotPasswordPage.vue'),
     },
     {
         path: '/registration',
-        component: RegistrationPage
+        name: 'sign-up',
+        component: () => import('@/pages/RegistrationPage.vue'),
     },
 ]
 

@@ -18,7 +18,7 @@
             />
             <label>Remember me</label>
             </div>
-            <router-link to="/forgot-password">Forgot password?</router-link>
+            <router-link :to="{name: 'forgot-password' }">Forgot password?</router-link>
         </div>
         <GqButton>Sign In</GqButton>
     </form>

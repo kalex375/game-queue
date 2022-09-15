@@ -1,7 +1,7 @@
 <template>
     <div>
         <RegistrationForm></RegistrationForm>
-        <p>Already have an anccount? <router-link to="/">Sign In</router-link></p>
+        <p>Already have an anccount? <router-link :to="{ name: 'sign-in' }">Sign In</router-link></p>
     </div>
 </template>
 
