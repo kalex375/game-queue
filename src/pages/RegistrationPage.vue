@@ -1,7 +1,7 @@
 <template>
     <div>
         <RegistrationForm></RegistrationForm>
-        <p>Already have an anccount? <a @click="$router.push('/')">Sign In</a></p>
+        <p>Already have an anccount? <router-link to="/">Sign In</router-link></p>
     </div>
 </template>
 
