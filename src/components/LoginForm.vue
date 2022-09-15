@@ -18,7 +18,7 @@
             />
             <label>Remember me</label>
             </div>
-            <a @click="$router.push('/forgot-password')">Forgot password?</a>
+            <router-link :to="{name: 'forgot-password' }">Forgot password?</router-link>
         </div>
         <GqButton>Sign In</GqButton>
     </form>
