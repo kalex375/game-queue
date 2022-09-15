@@ -22,6 +22,11 @@ const routes = [
         name: 'verification',
         component: () => import('@/pages/VerificationPage.vue'),
     },
+    {
+        path: '/reset-password',
+        name: 'reset-password',
+        component: () => import('@/pages/CreateNewPasswordPage.vue'),
+    },
 ]
 
 const router = createRouter({
