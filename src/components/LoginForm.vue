@@ -1,42 +1,32 @@
 <template>
-    <form>
-        <h3 class="title-form">Sign in</h3>
-        <GqInput
-        v-model="usernameOrEmail"
-        type="email"
-        placeholder="Email"
-        />
-        <GqInput
-        v-model="password"
-        type="password"
-        placeholder="Password"
-        />
-        <div class="login__group">
-            <div>
-            <GqCheckbox
-            v-model="isRememberMe"
-            />
-            <label>Remember me</label>
-            </div>
-            <a @click="$router.push('/forgot-password')">Forgot password?</a>
-        </div>
-        <GqButton>Sign In</GqButton>
-    </form>
+  <form>
+    <h3 class="title-form">Sign in</h3>
+    <GqInput v-model="usernameOrEmail" type="email" placeholder="Email" />
+    <GqInput v-model="password" type="password" placeholder="Password" />
+    <div class="login__group">
+      <div>
+        <GqCheckbox v-model="isRememberMe" />
+        <label>Remember me</label>
+      </div>
+      <a @click="$router.push('/forgot-password')">Forgot password?</a>
+    </div>
+    <GqButton>Sign In</GqButton>
+    <button>fsddfsdfsdf</button>
+  </form>
 </template>
 
 <script setup>
-import GqInput from './UI/GqInput.vue';
-import GqButton from './UI/GqButton.vue';
-import GqCheckbox from './UI/GqCheckbox.vue';
-import {ref} from 'vue';
+import GqInput from "./UI/GqInput.vue";
+import GqButton from "./UI/GqButton.vue";
+import GqCheckbox from "./UI/GqCheckbox.vue";
+import { ref } from "vue";
 
-const usernameOrEmail = ref('')
-const password = ref('')
-const isRememberMe = ref(false)
+const usernameOrEmail = ref("");
+const password = ref("");
+const isRememberMe = ref(false);
 </script>
 
 <style scoped>
-
 /* form {
     display: flex;
     flex-direction: column;

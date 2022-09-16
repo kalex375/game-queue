@@ -1,5 +1,5 @@
 <template>
-  <button class="btn transition">
+  <button class="GqButton">
     <slot></slot>
   </button>
 </template>
@@ -8,10 +8,8 @@
 
 <style scoped lang="scss">
 @import "@/assets/variables.scss";
-.transition {
+.GqButton {
   transition: 200ms;
-}
-.btn {
   font-family: "Nunito Sans", Sans-serif;
   font-size: 14px;
   font-weight: 700;
