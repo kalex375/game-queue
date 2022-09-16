@@ -3,7 +3,7 @@
     <LoginForm />
     <p>Or Sign In With</p>
     <GqButton>Google</GqButton>
-    <p>Don't have an account?<a href="">Sign Up</a></p>
+    <p>Don't have an account?<router-link :to="{ name: 'sign-up' }">Sign Up</router-link></p>
   </div>
 </template>
 

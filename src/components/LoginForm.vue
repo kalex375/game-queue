@@ -1,18 +1,27 @@
 <template>
-  <form>
-    <h3 class="title-form">Sign in</h3>
-    <GqInput v-model="usernameOrEmail" type="email" placeholder="Email" />
-    <GqInput v-model="password" type="password" placeholder="Password" />
-    <div class="login__group">
-      <div>
-        <GqCheckbox v-model="isRememberMe" />
-        <label>Remember me</label>
-      </div>
-      <a @click="$router.push('/forgot-password')">Forgot password?</a>
-    </div>
-    <GqButton>Sign In</GqButton>
-    <button>fsddfsdfsdf</button>
-  </form>
+    <form>
+        <h3 class="title-form">Sign in</h3>
+        <GqInput
+        v-model="usernameOrEmail"
+        type="email"
+        placeholder="Email"
+        />
+        <GqInput
+        v-model="password"
+        type="password"
+        placeholder="Password"
+        />
+        <div class="login__group">
+            <div>
+            <GqCheckbox
+            v-model="isRememberMe"
+            />
+            <label>Remember me</label>
+            </div>
+            <router-link :to="{name: 'forgot-password' }">Forgot password?</router-link>
+        </div>
+        <GqButton>Sign In</GqButton>
+    </form>
 </template>
 
 <script setup>
