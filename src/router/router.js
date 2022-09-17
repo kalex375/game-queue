@@ -27,6 +27,11 @@ const routes = [
         name: 'reset-password',
         component: () => import('@/pages/CreateNewPasswordPage.vue'),
     },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('@/pages/DashboardPage.vue'),
+    },
 ]
 
 const router = createRouter({

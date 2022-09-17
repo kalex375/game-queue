@@ -1,8 +1,8 @@
 <template>
-    <form>
+    <form @submit.prevent>
         <h3 class="title-form">Sign in</h3>
         <GqInput
-        v-model="usernameOrEmail"
+        v-model="email"
         type="email"
         placeholder="Email"
         />
@@ -20,7 +20,7 @@
             </div>
             <router-link :to="{name: 'forgot-password' }">Forgot password?</router-link>
         </div>
-        <GqButton>Sign In</GqButton>
+        <GqButton @click="useLoginUser(email, password)">Sign In</GqButton>
     </form>
 </template>
 
@@ -29,8 +29,9 @@ import GqInput from './UI/GqInput.vue';
 import GqButton from './UI/GqButton.vue';
 import GqCheckbox from './UI/GqCheckbox.vue';
 import {ref} from 'vue';
+import { useLoginUser } from '@/hooks/useLoginUser';
 
-const usernameOrEmail = ref('')
+const email = ref('')
 const password = ref('')
 const isRememberMe = ref(false)
 </script>
