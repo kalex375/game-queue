@@ -3,7 +3,7 @@
         <h3>Sign Up</h3>
         <GqInput
         v-model="username"
-        type="textp"
+        type="text"
         placeholder="Username"
         />
         <GqInput
