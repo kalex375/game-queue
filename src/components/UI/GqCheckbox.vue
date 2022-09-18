@@ -1,19 +1,16 @@
 <template>
-  <div class="checkbox">
-    <input type="checkbox" id="checkbox" v-model="checked" />
-    <label for="">Remeber me</label>
-  </div>
-  <!-- не нужный код ↑↑↑ (если я удаляю то вылетает ошибки не знаю как их решать)  -->
   <div>
     <input
-      id="highload0"
-      class="checkbox-custom"
-      name="highload0"
+      v-model="checked"
+      id="checkbox"
+      name="checkbox"
       type="checkbox"
     />
-    <label for="highload0" class="checkbox-custom-label">Remeber me</label>
+    <label for="checkbox">
+      <slot>Remember me</slot>
+    </label>
+    
   </div>
-  <div>sdasdasasdasdassdada ad</div>
 </template>
 
 <script setup>
@@ -38,13 +35,13 @@ const checked = computed({
 
 <style scoped lang="scss">
 @import "@/assets/variables.scss";
-#highload0 {
+input {
   display: none;
 }
-#highload0 ~ label::before #highload0 {
+input ~ label::before input {
   display: none;
 }
-#highload0 ~ label::before {
+input ~ label::before {
   content: "✓";
   text-align: center;
   color: #222831;
@@ -57,7 +54,7 @@ const checked = computed({
   margin: 0.25em;
   display: inline-block;
 }
-#highload0:checked ~ label::before {
+input:checked ~ label::before {
   content: "✓";
   color: white;
   border: 2px inset rgb(255, 255, 255);
