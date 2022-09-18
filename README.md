@@ -66,8 +66,10 @@ As user I can:
 
 ## Backend
 
-### Parse platform
-1. Documentation https://docs.parseplatform.org/js/guide/
-2. Dushboard http://game-queue.com:4040/
-
+### Pocket base
+- Documentation https://pocketbase.io/docs/
+- PocketBase JavaScript SDK https://github.com/pocketbase/js-sdk#pocketbase-javascript-sdk
+- REST API: http://game-queue.com:8888/api/
+- Admin UI: http://game-queue.com:8888/_/
+- Mailhog http://game-queue.com:8025/
     
