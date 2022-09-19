@@ -7,7 +7,7 @@
       type="checkbox"
     />
     <label for="checkbox">
-      <slot>Remember me</slot>
+      <slot></slot>
     </label>
     
   </div>
