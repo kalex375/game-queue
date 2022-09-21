@@ -31,7 +31,7 @@ const isRememberMe = ref(false);
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 .title-form {
-  font-family: $font_audiowide;
+  font-family: $font_secondary;
   font-size: 40px;
   font-weight: 400;
   color: $color_primary;
@@ -42,12 +42,11 @@ const isRememberMe = ref(false);
 .forgot-password {
   text-decoration: none;
   color: $color_text;
-  font-size:16px ;
+  font-size: 16px;
   &:hover {
     text-decoration: underline;
   }
 }
-
 
 /* form {
     display: flex;
