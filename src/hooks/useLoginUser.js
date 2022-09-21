@@ -1,9 +1,26 @@
-import routers from "@/router/router";
+import Pocketbase from 'pocketbase';
+import { reactive } from "vue";
 
-export async function useLoginUser(email, password) {
-    if (email === 'admin@tv.tv' && password === 'admin1') {
-        routers.push({name: 'dashboard'})
-    } else {
-        alert('Неверный пароль или логин!')
+const client = new Pocketbase('http://game-queue.com:8888')
+const user = reactive({
+    token: '',
+    email: '',
+})
+
+export default function useLoginUser() {
+    async function authUser(email, password) {
+        try {
+            const userAuthData1 = await client.users.authViaEmail(email.value, password.value);
+             user.token = userAuthData1.token
+             user.email = userAuthData1.user.email
+           return true
+        } catch (e) {
+            return false
+        }
     }
+    
+   return {
+        user,
+        authUser,
+   }
 }

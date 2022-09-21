@@ -1,6 +1,8 @@
 import {createRouter, createWebHistory} from "vue-router"
 import LoginPage from '@/pages/LoginPage'
 
+export const DASHBOARD = 'DASHBOARD'
+
 const routes = [
     {
         path: '/',
@@ -30,6 +32,7 @@ const routes = [
     {
         path: '/dashboard',
         name: 'dashboard',
+        meta: { requiresAuth: true },
         component: () => import('@/pages/DashboardPage.vue'),
     },
 ]
@@ -37,6 +40,19 @@ const routes = [
 const router = createRouter({
     routes,
     history: createWebHistory(process.env.BASE_URL)
+})
+
+router.beforeEach((to,from,next) => {
+    console.log(to.matched);
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (localStorage.getItem('TOKEN_USER')) {
+            next()
+        } else {
+            next({name: 'sign-in'})
+        }
+    } else {
+        next()
+    }
 })
 
 export default router;
