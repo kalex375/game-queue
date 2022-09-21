@@ -3,6 +3,7 @@
 @import "./variables.scss";
 @import "./btn.scss";
 @import './utils.scss';
+@import "~normalize-scss";
 body {
     background-color: $body_bg;
     font-family: "Nunito Sans", Sans-serif;
