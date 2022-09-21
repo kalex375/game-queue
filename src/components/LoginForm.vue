@@ -1,6 +1,6 @@
 <template>
   <form>
-    <h3 class="title-form">Sign in</h3>
+    <h3>Sign in</h3>
     <GqInput v-model="usernameOrEmail" type="email" placeholder="Email" />
     <GqInput v-model="password" type="password" placeholder="Password" />
     <div class="login__group">
@@ -30,7 +30,7 @@ const isRememberMe = ref(false);
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
-.title-form {
+h3 {
   font-family: $font_audiowide;
   font-size: 40px;
   font-weight: 400;
