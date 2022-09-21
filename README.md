@@ -63,11 +63,14 @@ As user I can:
 
 1. Theme and styles refence https://templatekit.tokokoo.com/knight/
 1. Wireframe https://wireframe.cc/pro/pp/9a4f1ecdd579031
+1. Figma https://www.figma.com/file/edLOZhRrvHDdY2JDSJR2pR/Untitled?node-id=0%3A1
 
 ## Backend
 
-### Parse platform
-1. Documentation https://docs.parseplatform.org/js/guide/
-2. Dushboard http://game-queue.com:4040/
-
+### Pocket base
+- Documentation https://pocketbase.io/docs/
+- PocketBase JavaScript SDK https://github.com/pocketbase/js-sdk#pocketbase-javascript-sdk
+- REST API: http://game-queue.com:8888/api/
+- Admin UI: http://game-queue.com:8888/_/
+- Mailhog http://game-queue.com:8025/
     

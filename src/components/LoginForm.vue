@@ -54,6 +54,24 @@ async function signIn() {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/variables.scss";
+.title-form {
+  font-family: $font_secondary;
+  font-size: 40px;
+  font-weight: 400;
+  color: $color_primary;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
+}
+.forgot-password {
+  text-decoration: none;
+  color: $color_text;
+  font-size: 16px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 </style>
