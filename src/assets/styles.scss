@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import "./variables.scss";
 @import "./btn.scss";
-@import './utilsClass.scss';
+@import './utils.scss';
 body {
-    background-color: #191D23;
+    background-color: $body_bg;
+    font-family: "Nunito Sans", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 35px;
+    color: $color-text;
 }
