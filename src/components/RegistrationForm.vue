@@ -1,10 +1,21 @@
 <template>
   <GqPanel class="m-auto">
     <h3 class="mb-3">Sign Up</h3>
-    <GqInput class="mb-3" v-model="username" type="textp" placeholder="Username" />
+    <GqInput
+      class="mb-3"
+      v-model="username"
+      type="textp"
+      placeholder="Username"
+    />
     <GqInput class="mb-3" v-model="email" type="email" placeholder="Email" />
-    <GqInput class="mb-3" v-model="password" type="password" placeholder="Password" />
-    <GqInput class="mb-3"
+    <GqInput
+      class="mb-3"
+      v-model="password"
+      type="password"
+      placeholder="Password"
+    />
+    <GqInput
+      class="mb-3"
       v-model="confirmPassword"
       type="password"
       placeholder="Confirm password"
@@ -37,6 +48,9 @@ h3 {
   line-height: 1.5em;
   letter-spacing: 0.5px;
   margin-top: 12rem;
+  @media screen and (max-height: 628px) {
+    margin-top: 1rem;
+  }
 }
 .flex {
   display: flex;
