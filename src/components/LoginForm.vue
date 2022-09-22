@@ -1,6 +1,6 @@
 <template>
   <form>
-    <h3>Sign in</h3>
+    <h3 class="title-form">Sign in</h3>
     <GqInput v-model="usernameOrEmail" type="email" placeholder="Email" />
     <GqInput v-model="password" type="password" placeholder="Password" />
     <div class="login__group">
@@ -33,7 +33,7 @@ const isRememberMe = ref(false);
 .flex {
   display: flex;
 }
-h3 {
+.title-form {
   font-family: $font_audiowide;
   font-size: 40px;
   font-weight: 400;
@@ -50,8 +50,6 @@ h3 {
     text-decoration: underline;
   }
 }
-
-
 /* form {
     display: flex;
     flex-direction: column;
