@@ -4,7 +4,7 @@
     <GqInput v-model="usernameOrEmail" type="email" placeholder="Email" />
     <GqInput v-model="password" type="password" placeholder="Password" />
     <div class="login__group">
-      <div>
+      <div class="flex">
         <GqCheckbox v-model="isRememberMe" />
         <label>Remember me</label>
       </div>
@@ -30,6 +30,9 @@ const isRememberMe = ref(false);
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
+.flex {
+  display: flex;
+}
 h3 {
   font-family: $font_audiowide;
   font-size: 40px;
