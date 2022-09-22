@@ -9,10 +9,6 @@
       type="password"
       placeholder="Confirm password"
     />
-    <!-- <div class="flex">
-      <GqCheckbox v-model="isRememberMe" />
-      <label>Remember me</label>
-    </div> -->
     <GqButton>Sign Up</GqButton>
   </GqPanel>
 </template>
@@ -20,7 +16,6 @@
 <script setup>
 import GqButton from "@/components/UI/GqButton.vue";
 import GqInput from "@/components//UI/GqInput.vue";
-// import GqCheckbox from "@/components//UI/GqCheckbox.vue";
 import GqPanel from "@/components/UI/GqPanel.vue";
 import { ref } from "vue";
 

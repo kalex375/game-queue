@@ -1,22 +1,20 @@
 <template>
-  <div class="form">
-    <slot>
-
-    </slot>
+  <div>
+    <slot> </slot>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+};
 </script>
 
-<style>
-.form {
-    max-width: 280px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+<style lang="scss" scoped>
+@import "@/assets/variables.scss";
+div {
+  max-width: 280px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 </style>
