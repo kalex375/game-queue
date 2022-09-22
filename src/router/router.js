@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory} from "vue-router"
 import LoginPage from '@/pages/LoginPage'
+import useLoginUser from '@/hooks/useLoginUser'
 
-export const DASHBOARD = 'DASHBOARD'
+const { user } = useLoginUser()
 
 const routes = [
     {
@@ -43,9 +44,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to,from,next) => {
-    console.log(to.matched);
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (localStorage.getItem('TOKEN_USER')) {
+        if (user.token !== '') {
             next()
         } else {
             next({name: 'sign-in'})

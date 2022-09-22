@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent>
+    <form @submit.prevent="signIn">
         <h3 class='title-form'>Sign in</h3>
         <GqInput
         v-model="email"
@@ -21,7 +21,7 @@
             <router-link class="forgot-password" :to="{name: 'forgot-password' }">Forgot password?</router-link>
         </div>
         <p :v-text="message">{{ message }}</p>
-        <GqButton @click="signIn">Sign In</GqButton>
+        <GqButton type="submit" @submit="signIn">Sign In</GqButton>
     </form>
 </template>
 
@@ -42,13 +42,15 @@ const { user, authUser  } = useLoginUser()
 
 async function signIn() {
     const isAuth = await authUser(email, password)
+
     if (isAuth) {
         router.push({name: 'dashboard'})
     } else {
-        message.value = 'The user is not registered in the system.'
+        message.value = 'Incorrect login or password.'
         router.push({name: 'sign-in'})
     } 
-    localStorage.setItem('TOKEN_USER', user.token)
+    
+    console.log(user.token);
 } 
    
 
