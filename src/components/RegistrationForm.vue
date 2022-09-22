@@ -29,6 +29,7 @@ import GqButton from "@/components/UI/GqButton.vue";
 import GqInput from "@/components//UI/GqInput.vue";
 import GqPanel from "@/components/UI/GqPanel.vue";
 import { ref } from "vue";
+
 const username = ref("");
 const email = ref("");
 const password = ref("");

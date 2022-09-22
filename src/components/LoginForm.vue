@@ -56,6 +56,9 @@ async function signIn() {
 
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
+.flex {
+  display: flex;
+}
 .title-form {
   font-family: $font_secondary;
   font-size: 40px;
@@ -73,5 +76,4 @@ async function signIn() {
     text-decoration: underline;
   }
 }
-
 </style>
