@@ -38,7 +38,7 @@ const password = ref('')
 const isRememberMe = ref(false)
 const message = ref('')
 
-const { user, authUser  } = useLoginUser()
+const {  authUser  } = useLoginUser()
 
 async function signIn() {
     const isAuth = await authUser(email, password)
@@ -49,8 +49,6 @@ async function signIn() {
         message.value = 'Incorrect login or password.'
         router.push({name: 'sign-in'})
     } 
-    
-    console.log(user.token);
 } 
    
 
