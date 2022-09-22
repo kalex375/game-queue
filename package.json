@@ -12,11 +12,12 @@
     "normalize-scss": "^7.0.1",
     "parse": "^3.4.4",
     "pocketbase": "^0.7.1",
-    "prettier-eslint": "^15.0.1",
     "vue": "^3.2.13",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -36,8 +37,7 @@
     "extends": [
       "plugin:vue/vue3-essential",
       "eslint:recommended",
-      "prettier",
-      "prettier/vue"
+      "@vue/eslint-config-prettier"
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser"
