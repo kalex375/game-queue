@@ -45,7 +45,7 @@ const confirmPassword = ref('')
 <style scoped lang="scss">
 @import '@/assets/variables.scss';
 h3 {
-    font-family: $font_audiowide;
+    font-family: $font_secondary;
     font-size: 40px;
     font-weight: 400;
     color: $color_primary;

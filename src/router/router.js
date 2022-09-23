@@ -36,6 +36,11 @@ const routes = [
         meta: {requiresAuth: true},
         component: () => import('@/pages/DashboardPage.vue'),
     },
+    {
+        path: '/homepage',
+        name: 'homepage',
+        component: () => import('@/pages/HomePage.vue'),
+    },
 ]
 
 const router = createRouter({
