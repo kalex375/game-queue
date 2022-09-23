@@ -1,20 +1,19 @@
 <template>
-  <div>
-    <slot> </slot>
-  </div>
+    <div>
+        <slot> </slot>
+    </div>
 </template>
 
 <script>
-export default {
-};
+export default {}
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables.scss";
+@import '@/assets/variables.scss';
 div {
-  max-width: 280px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    max-width: 280px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 </style>

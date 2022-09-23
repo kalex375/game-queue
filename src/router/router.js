@@ -1,8 +1,8 @@
-import {createRouter, createWebHistory} from "vue-router"
+import {createRouter, createWebHistory} from 'vue-router'
 import LoginPage from '@/pages/LoginPage'
 import useLoginUser from '@/hooks/useLoginUser'
 
-const { user } = useLoginUser()
+const {user} = useLoginUser()
 
 const routes = [
     {
@@ -33,17 +33,17 @@ const routes = [
     {
         path: '/dashboard',
         name: 'dashboard',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: true},
         component: () => import('@/pages/DashboardPage.vue'),
     },
 ]
 
 const router = createRouter({
     routes,
-    history: createWebHistory(process.env.BASE_URL)
+    history: createWebHistory(process.env.BASE_URL),
 })
 
-router.beforeEach((to,from,next) => {
+router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (user.token !== '') {
             next()
@@ -55,4 +55,4 @@ router.beforeEach((to,from,next) => {
     }
 })
 
-export default router;
+export default router

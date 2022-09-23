@@ -1,5 +1,5 @@
-import Pocketbase from 'pocketbase';
-import { reactive } from "vue";
+import Pocketbase from 'pocketbase'
+import {reactive} from 'vue'
 
 const client = new Pocketbase('http://game-queue.com:8888')
 const user = reactive({
@@ -10,17 +10,20 @@ const user = reactive({
 export default function useLoginUser() {
     async function authUser(email, password) {
         try {
-            const userAuthData1 = await client.users.authViaEmail(email.value, password.value);
-             user.token = userAuthData1.token
-             user.email = userAuthData1.user.email
-           return true
+            const userAuthData1 = await client.users.authViaEmail(
+                email.value,
+                password.value
+            )
+            user.token = userAuthData1.token
+            user.email = userAuthData1.user.email
+            return true
         } catch (e) {
             return false
         }
     }
-    
-   return {
+
+    return {
         user,
         authUser,
-   }
+    }
 }
