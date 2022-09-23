@@ -33,13 +33,8 @@ const routes = [
     {
         path: '/dashboard',
         name: 'dashboard',
-        meta: {requiresAuth: true},
+        // meta: {requiresAuth: true},
         component: () => import('@/pages/DashboardPage.vue'),
-    },
-    {
-        path: '/homepage',
-        name: 'homepage',
-        component: () => import('@/pages/HomePage.vue'),
     },
 ]
 
