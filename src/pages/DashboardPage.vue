@@ -9,7 +9,7 @@
                     {{ game.name }}
                 </li>
             </ul>
-            <button @click="getGame">Games</button>
+            <button @click="getGameName">Games</button>
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ const { user  } = useLoginUser()
 const { getGame } = useGameList()
 const games = ref()
 
-async function getGame() {
+async function getGameName() {
     const response = await getGame()
     games.value = response.items
 }
