@@ -1,19 +1,36 @@
 <template>
     <form @submit.prevent="signIn">
-        <h3 class="title-form">Sign in</h3>
-        <GqInput v-model="email" type="email" placeholder="Email" />
-        <GqInput v-model="password" type="password" placeholder="Password" />
-        <div class="login__group">
-            <div>
-                <GqCheckbox v-model="isRememberMe" />
-                <label>Remember me</label>
+        <GqPanel>
+            <h3 class="title-form">Sign in</h3>
+            <GqInput v-model="email" type="email" placeholder="Email" />
+            <GqInput
+                v-model="password"
+                type="password"
+                placeholder="Password"
+            />
+            <div class="login__group">
+                <div class="flex">
+                    <GqCheckbox v-model="isRememberMe" />
+                    <label>Remember me</label>
+                </div>
+                <router-link
+                    class="forgot-password"
+                    :to="{name: 'forgot-password'}"
+                    >Forgot password?</router-link
+                >
             </div>
-            <router-link class="forgot-password" :to="{name: 'forgot-password'}"
-                >Forgot password?</router-link
-            >
-        </div>
-        <p :v-text="message">{{ message }}</p>
-        <GqButton type="submit" @submit="signIn">Sign In</GqButton>
+            <p :v-text="message">{{ message }}</p>
+            <GqButton type="submit" @submit="signIn">Sign In</GqButton>
+            <p>Or Sign In With</p>
+            <GqButton>Google</GqButton>
+            <p>
+                Don't have an account?<router-link
+                    class="sign-up"
+                    :to="{name: 'sign-up'}"
+                    >Sign Up</router-link
+                >
+            </p>
+        </GqPanel>
     </form>
 </template>
 
@@ -21,6 +38,7 @@
 import GqInput from './UI/GqInput.vue'
 import GqButton from './UI/GqButton.vue'
 import GqCheckbox from './UI/GqCheckbox.vue'
+import GqPanel from '@/components/UI/GqPanel.vue'
 import useLoginUser from '@/hooks/useLoginUser'
 import router from '@/router/router'
 import {ref} from 'vue'
@@ -49,6 +67,13 @@ async function signIn() {
 .flex {
     display: flex;
 }
+.sign-up {
+    text-decoration: none;
+    color: $color_text;
+    &:hover {
+        text-decoration: underline;
+    }
+}
 .title-form {
     font-family: $font_secondary;
     font-size: 40px;
@@ -65,5 +90,11 @@ async function signIn() {
     &:hover {
         text-decoration: underline;
     }
+}
+.login__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 7.8rem;
 }
 </style>

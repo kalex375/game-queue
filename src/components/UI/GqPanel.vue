@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="m-auto">
         <slot> </slot>
     </div>
 </template>
@@ -11,9 +11,12 @@ export default {}
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
 div {
-    max-width: 280px;
+    height: 100vh;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 280px;
+    gap: 1rem;
 }
 </style>
