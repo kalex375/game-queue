@@ -19,23 +19,18 @@
                     >Forgot password?</router-link
                 >
             </div>
-            <!-- <p :v-text="message">{{ message }}</p> -->
-            <GqButton class="btn-padding" type="submit" @submit="signIn"
-                >Sign In</GqButton
-            >
+            <p v-if="!message" :v-text="message">{{ message }}</p>
+            <GqButton type="submit" @submit="signIn">Sign In</GqButton>
             <p>- or -</p>
-            <div class="login">
-                <GqButton class="btn-bg btn-padding"
-                    >SIGN IN WITH GOOGLE</GqButton
+
+            <GqButtonGoogle class="btn-bg">SIGN IN WITH GOOGLE</GqButtonGoogle>
+            <p>
+                Don't have an account?<router-link
+                    class="sign-up pl-1"
+                    :to="{name: 'sign-up'}"
+                    >Sign Up</router-link
                 >
-                <p>
-                    Don't have an account?<router-link
-                        class="sign-up pl-1"
-                        :to="{name: 'sign-up'}"
-                        >Sign Up</router-link
-                    >
-                </p>
-            </div>
+            </p>
         </GqPanel>
     </form>
 </template>
@@ -45,6 +40,7 @@ import GqInput from './UI/GqInput.vue'
 import GqButton from './UI/GqButton.vue'
 import GqCheckbox from './UI/GqCheckbox.vue'
 import GqPanel from '@/components/UI/GqPanel.vue'
+import GqButtonGoogle from '@/components/UI/GqButtonGoogle.vue'
 import useLoginUser from '@/hooks/useLoginUser'
 import router from '@/router/router'
 import {ref} from 'vue'
@@ -73,26 +69,13 @@ async function signIn() {
 .input {
     width: 100%;
 }
-.login {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-.btn-padding {
+.btn {
     padding: 15px 20px;
-}
-.btn-bg {
-    background-color: #4285f4;
-    border-color: #3464b3;
-    &:hover {
-        background-color: #3464b3;
-        border-color: #4285f4;
-    }
+    min-width: 97px;
 }
 .flex {
     display: flex;
-    font-size: 15px;
+    font-size: 16px;
 }
 .sign-up {
     text-decoration: none;
@@ -121,6 +104,7 @@ async function signIn() {
 .login__group {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
 }
 </style>
