@@ -1,31 +1,21 @@
 <template>
-    <GqPanel class="m-auto">
-        <h3 class="mb-3">Sign Up</h3>
+    <GqPanel>
+        <h3>Sign Up</h3>
+        <GqInput v-model="username" type="textp" placeholder="Username" />
+        <GqInput v-model="email" type="email" placeholder="Email" />
+        <GqInput v-model="password" type="password" placeholder="Password" />
         <GqInput
-            class="mb-3"
-            v-model="username"
-            type="textp"
-            placeholder="Username"
-        />
-        <GqInput
-            class="mb-3"
-            v-model="email"
-            type="email"
-            placeholder="Email"
-        />
-        <GqInput
-            class="mb-3"
-            v-model="password"
-            type="password"
-            placeholder="Password"
-        />
-        <GqInput
-            class="mb-3"
             v-model="confirmPassword"
             type="password"
             placeholder="Confirm password"
         />
         <GqButton>Sign Up</GqButton>
+        <p class="m-auto">
+            Already have an anccount?
+            <router-link class="sign-up" :to="{name: 'sign-in'}"
+                >Sign In</router-link
+            >
+        </p>
     </GqPanel>
 </template>
 
@@ -52,10 +42,6 @@ h3 {
     text-transform: uppercase;
     line-height: 1.5em;
     letter-spacing: 0.5px;
-    margin-top: 12rem;
-    @media screen and (max-height: 628px) {
-        margin-top: 1rem;
-    }
 }
 .flex {
     display: flex;
@@ -63,5 +49,15 @@ h3 {
 input {
     max-width: 280px;
     width: 100%;
+}
+.sign-up {
+    text-decoration: none;
+    color: $color_text;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+p {
+    max-width: 277px;
 }
 </style>
