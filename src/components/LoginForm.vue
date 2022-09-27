@@ -19,7 +19,7 @@
                     >Forgot password?</router-link
                 >
             </div>
-            <p v-if="!message" :v-text="message">{{ message }}</p>
+            <p v-if="message" :v-text="message"></p>
             <GqButton type="submit" @submit="signIn">Sign In</GqButton>
             <p>- or -</p>
 
