@@ -23,7 +23,7 @@
             <GqButton type="submit" @submit="signIn">Sign In</GqButton>
             <p>- or -</p>
 
-            <GqButtonGoogle class="btn-bg">SIGN IN WITH GOOGLE</GqButtonGoogle>
+            <GqButtonGoogle>SIGN IN WITH GOOGLE</GqButtonGoogle>
             <p>
                 Don't have an account?<router-link
                     class="sign-up pl-1"
@@ -68,10 +68,6 @@ async function signIn() {
 @import '@/assets/variables.scss';
 .input {
     width: 100%;
-}
-.btn {
-    padding: 15px 20px;
-    min-width: 97px;
 }
 .flex {
     display: flex;

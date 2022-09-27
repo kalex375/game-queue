@@ -29,5 +29,6 @@ function updateValue(value) {
     border: 2px solid $border-cl;
     color: $input-text;
     background: $bg-input;
+    width: 100%;
 }
 </style>
