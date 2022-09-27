@@ -16,7 +16,7 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 280px;
+    max-width: 300px;
     gap: 1rem;
 }
 </style>

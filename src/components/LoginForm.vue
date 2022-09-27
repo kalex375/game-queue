@@ -21,11 +21,11 @@
             </div>
             <p :v-text="message">{{ message }}</p>
             <GqButton type="submit" @submit="signIn">Sign In</GqButton>
-            <p>Or Sign In With</p>
-            <GqButton>Google</GqButton>
+            <p>-or-</p>
+            <GqButton class="btn-bg">SIGN IN WITH GOOGLE</GqButton>
             <p>
                 Don't have an account?<router-link
-                    class="sign-up"
+                    class="sign-up pl-1"
                     :to="{name: 'sign-up'}"
                     >Sign Up</router-link
                 >
@@ -64,6 +64,17 @@ async function signIn() {
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
+.input {
+    width: 100%;
+}
+.btn-bg {
+    background-color: #4285f4;
+    border-color: #3464b3;
+    &:hover {
+        background-color: #3464b3;
+        border-color: #4285f4;
+    }
+}
 .flex {
     display: flex;
 }
@@ -93,8 +104,7 @@ async function signIn() {
 }
 .login__group {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-right: 7.8rem;
+    gap: 1rem;
 }
 </style>
