@@ -19,17 +19,23 @@
                     >Forgot password?</router-link
                 >
             </div>
-            <p :v-text="message">{{ message }}</p>
-            <GqButton type="submit" @submit="signIn">Sign In</GqButton>
-            <p>-or-</p>
-            <GqButton class="btn-bg">SIGN IN WITH GOOGLE</GqButton>
-            <p>
-                Don't have an account?<router-link
-                    class="sign-up pl-1"
-                    :to="{name: 'sign-up'}"
-                    >Sign Up</router-link
+            <!-- <p :v-text="message">{{ message }}</p> -->
+            <GqButton class="btn-padding" type="submit" @submit="signIn"
+                >Sign In</GqButton
+            >
+            <p>- or -</p>
+            <div class="login">
+                <GqButton class="btn-bg btn-padding"
+                    >SIGN IN WITH GOOGLE</GqButton
                 >
-            </p>
+                <p>
+                    Don't have an account?<router-link
+                        class="sign-up pl-1"
+                        :to="{name: 'sign-up'}"
+                        >Sign Up</router-link
+                    >
+                </p>
+            </div>
         </GqPanel>
     </form>
 </template>
@@ -67,6 +73,15 @@ async function signIn() {
 .input {
     width: 100%;
 }
+.login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-padding {
+    padding: 15px 20px;
+}
 .btn-bg {
     background-color: #4285f4;
     border-color: #3464b3;
@@ -77,6 +92,7 @@ async function signIn() {
 }
 .flex {
     display: flex;
+    font-size: 15px;
 }
 .sign-up {
     text-decoration: none;
@@ -105,6 +121,6 @@ async function signIn() {
 .login__group {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 </style>
