@@ -1,16 +1,14 @@
 <template>
-    <div>
-        <label for="checkbox" class="control control--checkbox">
-            <input
-                v-model="checked"
-                id="checkbox"
-                name="checkbox"
-                type="checkbox"
-            />
-            <slot></slot>
-            <div class="control__indicator"></div>
-        </label>
-    </div>
+    <label for="checkbox" class="control control--checkbox">
+        <input
+            v-model="checked"
+            id="checkbox"
+            name="checkbox"
+            type="checkbox"
+        />
+        <slot></slot>
+        <div class="control__indicator"></div>
+    </label>
 </template>
 
 <script setup>
@@ -35,21 +33,11 @@ const checked = computed({
 
 <style scoped lang="scss">
 @import '@/assets/variables.scss';
-$color--white: #ffffff;
-$color--black: #000000;
-$color--light-grey: #e6e6e6;
-$color--grey: #cccccc;
-$color--dark-grey: #7b7b7b;
-$color--primary: #2aa1c0;
-$color--secondary: #0e647d;
-
 .control {
     display: block;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
+    padding-left: 1.875rem;
     cursor: pointer;
-    font-size: 18px;
 }
 .control input {
     position: absolute;
@@ -58,7 +46,8 @@ $color--secondary: #0e647d;
 }
 .control__indicator {
     position: absolute;
-    top: 2px;
+    transform: translateY(-50%);
+    top: 50%;
     left: 0;
     height: 20px;
     width: 20px;
@@ -69,11 +58,11 @@ $color--secondary: #0e647d;
     background: #ccc;
 }
 .control input:checked ~ .control__indicator {
-    background: #2aa1c0;
+    background: $color_accent;
 }
 .control:hover input:not([disabled]):checked ~ .control__indicator,
 .control input:checked:focus ~ .control__indicator {
-    background: #0e647d;
+    background: $color_accent;
 }
 .control input:disabled ~ .control__indicator {
     background: #e6e6e6;
