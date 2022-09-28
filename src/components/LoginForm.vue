@@ -66,11 +66,6 @@ async function signIn() {
 .input {
     width: 100%;
 }
-.flex {
-    display: flex;
-    font-size: 16px;
-    align-items: baseline;
-}
 .sign-up {
     text-decoration: none;
     color: $color_text;
