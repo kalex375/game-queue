@@ -8,11 +8,8 @@
                 type="password"
                 placeholder="Password"
             />
-            <div class="login__group">
-                <div class="flex">
-                    <GqCheckbox v-model="isRememberMe" />
-                    <label>Remember me</label>
-                </div>
+            <div class="login">
+                <GqCheckbox v-model="isRememberMe">Remember me</GqCheckbox>
                 <router-link
                     class="forgot-password"
                     :to="{name: 'forgot-password'}"
@@ -69,10 +66,6 @@ async function signIn() {
 .input {
     width: 100%;
 }
-.flex {
-    display: flex;
-    font-size: 16px;
-}
 .sign-up {
     text-decoration: none;
     color: $color_text;
@@ -97,7 +90,7 @@ async function signIn() {
         text-decoration: underline;
     }
 }
-.login__group {
+.login {
     display: flex;
     align-items: center;
     width: 100%;

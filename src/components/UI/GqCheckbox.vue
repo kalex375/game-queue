@@ -1,15 +1,14 @@
 <template>
-    <div>
+    <label for="checkbox" class="control control--checkbox">
         <input
             v-model="checked"
             id="checkbox"
             name="checkbox"
             type="checkbox"
         />
-        <label for="checkbox">
-            <slot></slot>
-        </label>
-    </div>
+        <slot></slot>
+        <div class="control__indicator"></div>
+    </label>
 </template>
 
 <script setup>
@@ -34,29 +33,57 @@ const checked = computed({
 
 <style scoped lang="scss">
 @import '@/assets/variables.scss';
-input {
+.control {
+    display: block;
+    position: relative;
+    padding-left: 1.875rem;
+    cursor: pointer;
+}
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.control__indicator {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+    background: #ccc;
+}
+.control input:checked ~ .control__indicator {
+    background: $color_accent;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+    background: $color_accent;
+}
+.control input:disabled ~ .control__indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control__indicator:after {
+    content: '';
+    position: absolute;
     display: none;
 }
-input ~ label::before input {
-    display: none;
+.control input:checked ~ .control__indicator:after {
+    display: block;
 }
-input ~ label::before {
-    content: '✓';
-    text-align: center;
-    color: #222831;
-    line-height: 1em;
-    width: 1em;
-    height: 1em;
-    border: 2px inset white;
-    background: #222831;
-    border-radius: 0.25em;
-    margin: 0.25em;
-    display: inline-block;
-}
-input:checked ~ label::before {
-    content: '✓';
-    color: white;
-    border: 2px inset rgb(255, 255, 255);
-    background: #222831;
+.control--checkbox .control__indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 </style>
