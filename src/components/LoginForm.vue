@@ -72,6 +72,7 @@ async function signIn() {
 .flex {
     display: flex;
     font-size: 16px;
+    align-items: baseline;
 }
 .sign-up {
     text-decoration: none;
