@@ -64,7 +64,6 @@
 
 <script setup>
 import useLoginUser from '@/hooks/useLoginUser'
-import GqContainer from '@/components/UI/GqContainer.vue'
 
 const {user} = useLoginUser()
 </script>

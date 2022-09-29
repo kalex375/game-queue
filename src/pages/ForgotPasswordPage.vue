@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import GqInput from '@/components/UI/GqInput.vue'
-import GqButton from '@/components/UI/GqButton.vue'
 import {ref} from 'vue'
 
 const email = ref('')

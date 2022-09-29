@@ -33,11 +33,6 @@
 </template>
 
 <script setup>
-import GqInput from './UI/GqInput.vue'
-import GqButton from './UI/GqButton.vue'
-import GqCheckbox from './UI/GqCheckbox.vue'
-import GqPanel from '@/components/UI/GqPanel.vue'
-import GqButtonGoogle from '@/components/UI/GqButtonGoogle.vue'
 import useLoginUser from '@/hooks/useLoginUser'
 import router from '@/router/router'
 import {ref} from 'vue'
