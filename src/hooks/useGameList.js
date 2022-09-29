@@ -1,17 +1,22 @@
 import PocketBase from 'pocketbase';
+import { onMounted, reactive } from 'vue';
 
 const client = new PocketBase('http://game-queue.com:8888');
 
 export default function useGameList() {
+    let games = reactive({
+        list: [],
+    })
     async function getGame() {
-        try {
-            return await client.records.getList('games')
-        } catch (e) {
-            console.log(e);
-        }
+        const records  = await client.records.getFullList('games')
+        games.list = records
+        return games
     }
 
+    onMounted(getGame)
     return {
-        getGame,
+        games,
+        getGame,  
+  
     }
 }
