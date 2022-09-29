@@ -13,9 +13,6 @@ import GqContainer from '@/components/UI/GqContainer.vue'
 </script>
 
 <style lang="scss" scoped>
-.btn {
-    text-decoration: none;
-}
 div {
     display: flex;
     align-items: center;
