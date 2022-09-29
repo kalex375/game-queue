@@ -1,6 +1,5 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import components from '@/components/UI'
 import router from '@/router/router'
 import GqButton from '@/components/UI/GqButton'
 import GqButtonGoogle from '@/components/UI/GqButtonGoogle'
@@ -12,9 +11,6 @@ import '@/assets/styles.scss'
 
 const app = createApp(App)
 
-components.forEach(component => {
-    app.component(component.name, component)
-})
 app.component('GqButton', GqButton)
 app.component('GqButtonGoogle', GqButtonGoogle)
 app.component('GqCheckbox', GqCheckbox)
