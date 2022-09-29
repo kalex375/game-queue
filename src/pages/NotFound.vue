@@ -8,9 +8,7 @@
     <!-- или на dashboard-->
 </template>
 
-<script setup>
-import GqContainer from '@/components/UI/GqContainer.vue'
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 div {
