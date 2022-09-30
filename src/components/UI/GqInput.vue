@@ -2,7 +2,6 @@
     <input
         :value="props.modelValue"
         @input="updateValue($event.target.value)"
-        class="input"
         type="text"
     />
 </template>
@@ -23,11 +22,12 @@ function updateValue(value) {
 
 <style scoped lang="scss">
 @import '@/assets/variables.scss';
-.input {
+input {
     font-size: 18px;
     padding: 13px 20px;
     border: 2px solid $border-cl;
     color: $input-text;
     background: $bg-input;
+    width: 100%;
 }
 </style>

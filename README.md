@@ -73,4 +73,7 @@ As user I can:
 - REST API: http://game-queue.com:8888/api/
 - Admin UI: http://game-queue.com:8888/_/
 - Mailhog http://game-queue.com:8025/
-    
+
+### IGDB api
+- Search games: http://game-queue.com:3030/igdb/search?q=halo%20infinite
+- Opencritic meta: http://game-queue.com:3030/opencritic?name=halo%20infinite    

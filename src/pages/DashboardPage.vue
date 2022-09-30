@@ -22,6 +22,7 @@
 import useGameList from '@/hooks/useGameList'   
 import GqContainer from '@/components/UI/GqContainer.vue'
 
+
 const { games } = useGameList()
 </script>
 

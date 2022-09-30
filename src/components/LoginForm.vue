@@ -1,26 +1,38 @@
 <template>
     <form @submit.prevent="signIn">
-        <h3 class="title-form">Sign in</h3>
-        <GqInput v-model="email" type="email" placeholder="Email" />
-        <GqInput v-model="password" type="password" placeholder="Password" />
-        <div class="login__group">
-            <div>
-                <GqCheckbox v-model="isRememberMe" />
-                <label>Remember me</label>
+        <GqPanel>
+            <h3 class="title-form">Sign in</h3>
+            <GqInput v-model="email" type="email" placeholder="Email" />
+            <GqInput
+                v-model="password"
+                type="password"
+                placeholder="Password"
+            />
+            <div class="login">
+                <GqCheckbox v-model="isRememberMe">Remember me</GqCheckbox>
+                <router-link
+                    class="forgot-password"
+                    :to="{name: 'forgot-password'}"
+                    >Forgot password?</router-link
+                >
             </div>
-            <router-link class="forgot-password" :to="{name: 'forgot-password'}"
-                >Forgot password?</router-link
-            >
-        </div>
-        <p :v-text="message">{{ message }}</p>
-        <GqButton type="submit" @submit="signIn">Sign In</GqButton>
+            <p v-if="message" v-text="message"></p>
+            <GqButton type="submit" @submit="signIn">Sign In</GqButton>
+            <p>- or -</p>
+
+            <GqButtonGoogle>SIGN IN WITH GOOGLE</GqButtonGoogle>
+            <p>
+                Don't have an account?<router-link
+                    class="sign-up pl-1"
+                    :to="{name: 'sign-up'}"
+                    >Sign Up</router-link
+                >
+            </p>
+        </GqPanel>
     </form>
 </template>
 
 <script setup>
-import GqInput from './UI/GqInput.vue'
-import GqButton from './UI/GqButton.vue'
-import GqCheckbox from './UI/GqCheckbox.vue'
 import useLoginUser from '@/hooks/useLoginUser'
 import router from '@/router/router'
 import {ref} from 'vue'
@@ -46,8 +58,15 @@ async function signIn() {
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
-.flex {
-    display: flex;
+.input {
+    width: 100%;
+}
+.sign-up {
+    text-decoration: none;
+    color: $color_text;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 .title-form {
     font-family: $font_secondary;
@@ -65,5 +84,11 @@ async function signIn() {
     &:hover {
         text-decoration: underline;
     }
+}
+.login {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 </style>
