@@ -1,4 +1,5 @@
 <template>
+    <GqHeader></GqHeader>
     <div>
         {{ user.email }}
         <GqContainer class="m-auto">
