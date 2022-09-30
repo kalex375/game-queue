@@ -1,71 +1,29 @@
 <template>
-    <div>
-        {{ user.email }}
         <GqContainer class="m-auto">
-            <div>
-                <div class="game-list mt-4 p-3">
-                    <div>
-                        <img src="" alt="Штука чтобы двигать" />
-                    </div>
+            <ul>
+                <li class="game-list mt-4 p-3" v-for="game in games.list" :key="game.name">
                     <div class="game-list__game-image">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png"
-                            alt="Картинка игры"
-                        />
+                            :src="`http://game-queue.com:8888/api/files/games/${game.id}/${game.field}?thumb=100x350`"
+                            :alt="game.name"
+                        />  
                     </div>
                     <div class="pl-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Ullam impedit error quas delectus animi distinctio
-                        quidem, veniam, doloribus, ipsa et dignissimos eum.
-                        Praesentium, vero ipsa animi ea officiis temporibus
-                        facere.
+                        <h3>{{ game.name }}</h3>
+                        <h4>{{ game.developers }}</h4>
+                        <p>{{ game.description }}</p>
                     </div>
-                </div>
-                <div class="game-list mt-4 p-3">
-                    <div>
-                        <img src="" alt="Штука чтобы двигать" />
-                    </div>
-                    <div class="game-list__game-image">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png"
-                            alt="Картинка игры"
-                        />
-                    </div>
-                    <div class="pl-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Ullam impedit error quas delectus animi distinctio
-                        quidem, veniam, doloribus, ipsa et dignissimos eum.
-                        Praesentium, vero ipsa animi ea officiis temporibus
-                        facere.
-                    </div>
-                </div>
-                <div class="game-list mt-4 p-3">
-                    <div>
-                        <img src="" alt="Штука чтобы двигать" />
-                    </div>
-                    <div class="game-list__game-image">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png"
-                            alt="Картинка игры"
-                        />
-                    </div>
-                    <div class="pl-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Ullam impedit error quas delectus animi distinctio
-                        quidem, veniam, doloribus, ipsa et dignissimos eum.
-                        Praesentium, vero ipsa animi ea officiis temporibus
-                        facere.
-                    </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </GqContainer>
-    </div>
 </template>
 
 <script setup>
-import useLoginUser from '@/hooks/useLoginUser'
+import useGameList from '@/hooks/useGameList'   
+import GqContainer from '@/components/UI/GqContainer.vue'
 
-const {user} = useLoginUser()
+
+const { games } = useGameList()
 </script>
 
 <style lang="scss" scoped>
