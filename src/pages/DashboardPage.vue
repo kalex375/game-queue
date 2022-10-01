@@ -64,6 +64,7 @@
 </template>
 
 <script setup>
+import GqHeader from '@/components/UI/GqHeader.vue'
 import useLoginUser from '@/hooks/useLoginUser'
 
 const {user} = useLoginUser()

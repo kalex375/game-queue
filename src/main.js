@@ -7,7 +7,6 @@ import GqCheckbox from '@/components/UI/GqCheckbox'
 import GqContainer from '@/components/UI/GqContainer'
 import GqPanel from '@/components/UI/GqPanel'
 import GqInput from '@/components/UI/GqInput'
-import GqHeader from '@/components/UI/GqHeader'
 import '@/assets/styles.scss'
 
 const app = createApp(App)
@@ -18,5 +17,4 @@ app.component('GqCheckbox', GqCheckbox)
 app.component('GqContainer', GqContainer)
 app.component('GqPanel', GqPanel)
 app.component('GqInput', GqInput)
-app.component('GqHeader', GqHeader)
 app.use(router).mount('#app')

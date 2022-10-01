@@ -1,5 +1,5 @@
 <template>
-    <header class="p-4">
+    <header class="p-2">
         <h1>Game-queue</h1>
         <div class="items">
             <div class="user">
@@ -8,7 +8,7 @@
                         src="https://www.klerk.ru/images/noavatar.webp"
                         alt="avatar"
                 /></a>
-                <p>username</p>
+                <a class="username" href="profile">{{ user.email }}</a>
             </div>
             <GqButton>Logout</GqButton>
         </div>
@@ -21,35 +21,43 @@ export default {}
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
+.username {
+    text-decoration: none;
+    color: $color-text;
+}
 header {
     display: flex;
     justify-content: space-between;
-    background-image: url('https://templatekit.tokokoo.com/knight/wp-content/uploads/sites/17/2021/01/navbar-bg.jpg');
+    background-image: url('@/img/header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
     border-bottom: 2px solid $color_secondary;
 }
 .user {
+    display: flex;
     flex-direction: column;
+    align-items: center;
 }
 h1 {
     font-family: $font_secondary;
-    font-size: 50px;
+    font-size: 3rem;
 }
-div {
+header {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 p {
     font-family: $font_secondary;
 }
 img {
-    width: 35px;
-    height: 35px;
+    width: 2rem;
+    height: 2rem;
     border-radius: 20px;
 }
 .items {
+    display: flex;
+    align-items: center;
     gap: 2rem;
 }
 </style>
