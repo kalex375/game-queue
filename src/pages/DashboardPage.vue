@@ -14,7 +14,7 @@
                         <p>{{ game.description }}</p>
                     </div>
                   <GqButton
-                      @click="deleteGameFromDom(game.id)"
+                      @click="deleteGame(game.id)"
                   >
                     Delete
                   </GqButton>
@@ -27,14 +27,9 @@
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
 import GqButton from '@/components/UI/GqButton'
-import useDeleteGame from "@/hooks/useDeleteGame";
 
-const { games, getGame } = useGameList()
-const { deleteGame } = useDeleteGame()
+const { games, deleteGame } = useGameList()
 
-async function deleteGameFromDom(gameId) {
-  await deleteGame(gameId).then(await getGame())
-}
 </script>
 
 <style lang="scss" scoped>
