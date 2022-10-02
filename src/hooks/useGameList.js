@@ -7,15 +7,20 @@ export default function useGameList() {
     let games = reactive({
         list: [],
     })
-    async function getGame() {
+    async function getGames() {
         const records = await client.records.getFullList('games')
         games.list = records
         return games
     }
+    async function deleteGame(gameId) {
+        await client.records.delete('games', `${gameId}`)
+        await getGames()
+    }
 
-    onMounted(getGame)
+    onMounted(getGames)
     return {
         games,
-        getGame,
+        getGames,
+        deleteGame,
     }
 }

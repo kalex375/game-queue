@@ -5,7 +5,7 @@
             <li
                 class="game-list mt-4 p-3"
                 v-for="game in games.list"
-                :key="game.name"
+                :key="game.id"
             >
                 <div class="game-list__game-image">
                     <img
@@ -18,15 +18,19 @@
                     <h4>{{ game.developers }}</h4>
                     <p>{{ game.description }}</p>
                 </div>
+                <GqButton @click="deleteGame(game.id)"> Delete </GqButton>
             </li>
         </ul>
     </GqContainer>
 </template>
 
 <script setup>
-import useGameList from '@/hooks/useGameList'
 import GqHeader from '@/components/UI/GqHeader.vue'
-const {games} = useGameList()
+import useGameList from '@/hooks/useGameList'
+import GqContainer from '@/components/UI/GqContainer.vue'
+import GqButton from '@/components/UI/GqButton'
+
+const {games, deleteGame} = useGameList()
 </script>
 
 <style lang="scss" scoped>
