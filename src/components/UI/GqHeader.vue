@@ -2,25 +2,26 @@
     <header class="p-2">
         <h1>Game-queue</h1>
         <div class="items">
-            <div class="user">
-                <a href="profile"
-                    ><img
-                        src="https://www.klerk.ru/images/noavatar.webp"
-                        alt="avatar"
-                /></a>
-                <a class="username" href="profile">{{ user.email }}</a>
-            </div>
+            <a class="profile" href="profile"
+                ><img
+                    src="https://www.klerk.ru/images/noavatar.webp"
+                    alt="avatar"
+                />
+                <p>{{ user.email }}</p>
+            </a>
             <GqButton>Logout</GqButton>
         </div>
     </header>
 </template>
 
-<script>
-export default {}
+<script setup>
+import useLoginUser from '@/hooks/useLoginUser'
+const {user} = useLoginUser()
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';
+
 .username {
     text-decoration: none;
     color: $color-text;
@@ -34,10 +35,13 @@ header {
     align-items: center;
     border-bottom: 2px solid $color_secondary;
 }
-.user {
+.profile {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    font-family: $font_secondary;
+    color: $color_primary;
 }
 h1 {
     font-family: $font_secondary;
@@ -46,9 +50,6 @@ h1 {
 header {
     display: flex;
     justify-content: space-between;
-}
-p {
-    font-family: $font_secondary;
 }
 img {
     width: 2rem;

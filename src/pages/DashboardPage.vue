@@ -26,7 +26,6 @@
 <script setup>
 import useGameList from '@/hooks/useGameList'
 import GqHeader from '@/components/UI/GqHeader.vue'
-
 const {games} = useGameList()
 </script>
 
