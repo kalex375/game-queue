@@ -1,35 +1,36 @@
 <template>
-        <GqContainer class="m-auto">
-            <ul>
-                <li class="game-list mt-4 p-3" v-for="game in games.list" :key="game.id">
-                    <div class="game-list__game-image">
-                        <img
-                            :src="`http://game-queue.com:8888/api/files/games/${game.id}/${game.field}?thumb=100x350`"
-                            :alt="game.name"
-                        />  
-                    </div>
-                    <div class="pl-4">
-                        <h3>{{ game.name }}</h3>
-                        <h4>{{ game.developers }}</h4>
-                        <p>{{ game.description }}</p>
-                    </div>
-                  <GqButton
-                      @click="deleteGame(game.id)"
-                  >
-                    Delete
-                  </GqButton>
-                </li>
-            </ul>
-        </GqContainer>
+    <GqHeader></GqHeader>
+    <GqContainer class="m-auto">
+        <ul>
+            <li
+                class="game-list mt-4 p-3"
+                v-for="game in games.list"
+                :key="game.id"
+            >
+                <div class="game-list__game-image">
+                    <img
+                        :src="`http://game-queue.com:8888/api/files/games/${game.id}/${game.field}?thumb=100x350`"
+                        :alt="game.name"
+                    />
+                </div>
+                <div class="pl-4">
+                    <h3>{{ game.name }}</h3>
+                    <h4>{{ game.developers }}</h4>
+                    <p>{{ game.description }}</p>
+                </div>
+                <GqButton @click="deleteGame(game.id)"> Delete </GqButton>
+            </li>
+        </ul>
+    </GqContainer>
 </template>
 
 <script setup>
+import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
 import GqButton from '@/components/UI/GqButton'
 
-const { games, deleteGame } = useGameList()
-
+const {games, deleteGame} = useGameList()
 </script>
 
 <style lang="scss" scoped>
