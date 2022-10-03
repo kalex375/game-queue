@@ -21,9 +21,15 @@ export default function useLoginUser() {
             return false
         }
     }
+    function checkUser() {
+        if (!client.authStore.isValid) return false
+        if (user.email === '') user.email = client.authStore.model.email
+        return true
+    }
 
     return {
         user,
         authUser,
+        checkUser,
     }
 }
