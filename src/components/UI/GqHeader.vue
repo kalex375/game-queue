@@ -9,7 +9,7 @@
                 />
                 <p>{{ user.email }}</p>
             </a>
-            <GqButton>Logout</GqButton>
+            <GqButton @click="$router.push({name: 'sign-in'})">Logout</GqButton>
         </div>
     </header>
 </template>
