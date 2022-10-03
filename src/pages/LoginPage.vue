@@ -8,5 +8,4 @@ import LoginForm from '@/components/LoginForm'
 
 <style scoped lang="scss">
 @import '@/assets/variables.scss';
-
 </style>

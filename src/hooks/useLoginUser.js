@@ -21,9 +21,13 @@ export default function useLoginUser() {
             return false
         }
     }
+    function checkUser() {
+        return client.authStore.isValid
+    }
 
     return {
         user,
         authUser,
+        checkUser,
     }
 }
