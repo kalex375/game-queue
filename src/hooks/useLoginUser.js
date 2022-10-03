@@ -22,9 +22,9 @@ export default function useLoginUser() {
         }
     }
     function checkUser() {
-        if (client.authStore.isValid) {
-          return user.email = client.authStore.model.email
-        }
+        if (!client.authStore.isValid) return false
+        if (user.email === '') user.email = client.authStore.model.email
+        return true
     }
 
     return {
