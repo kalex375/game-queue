@@ -8,7 +8,9 @@ export default function useGameList() {
         list: [],
     })
     async function getGames() {
-        const records = await client.records.getFullList('games')
+        const records = await client.records.getFullList('games', '', {
+            sort: 'position',
+        })
         games.list = records
         return games
     }
