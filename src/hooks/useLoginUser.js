@@ -27,7 +27,7 @@ export default function useLoginUser() {
         return true
     }
     function logout() {
-        return client.authStore.clear()
+        return client.authStore.clear(), (user.email = '')
     }
 
     return {
