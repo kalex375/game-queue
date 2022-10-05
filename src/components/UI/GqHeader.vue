@@ -9,7 +9,9 @@
                 />
                 <p>{{ user.email }}</p>
             </a>
-            <GqButton @click="$router.push({name: 'sign-in'})">Logout</GqButton>
+            <GqButton @click="$router.push({name: 'sign-in'}), logout()"
+                >Logout</GqButton
+            >
         </div>
     </header>
 </template>
@@ -17,6 +19,7 @@
 <script setup>
 import useLoginUser from '@/hooks/useLoginUser'
 const {user} = useLoginUser()
+const {logout} = useLoginUser()
 </script>
 
 <style lang="scss" scoped>

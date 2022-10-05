@@ -26,10 +26,14 @@ export default function useLoginUser() {
         if (user.email === '') user.email = client.authStore.model.email
         return true
     }
+    function logout() {
+        return client.authStore.clear()
+    }
 
     return {
         user,
         authUser,
         checkUser,
+        logout,
     }
 }
