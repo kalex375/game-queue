@@ -9,14 +9,17 @@ export default function useGameList() {
     })
     async function getGames() {
         const records = await client.records.getFullList('games', '', {
-            sort: 'position',
+            sort: `position`,
         })
         games.list = records
         return games
     }
     async function deleteGame(gameId) {
-        await client.records.delete('games', `${gameId}`)
+        await client.records.delete('games', gameId)
         await getGames()
+    }
+    async function updateGame(game) {
+        await client.records.update('games', game.id, game);
     }
 
     onMounted(getGames)
@@ -24,5 +27,6 @@ export default function useGameList() {
         games,
         getGames,
         deleteGame,
+        updateGame
     }
 }
