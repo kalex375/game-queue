@@ -18,4 +18,12 @@
         background: $border-cl-btn;
         border-color: $bg-button;
     }
+    &--disabled {
+        background: #75638C;
+        border-color: #8B8296;
+        &:hover {
+            background: #75638C;
+            border-color: #8B8296;
+        }
+    }
 }
