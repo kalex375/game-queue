@@ -18,7 +18,7 @@
                     <h4>{{ game.developers }}</h4>
                     <p>{{ game.description }}</p>
                 </div>
-                <GqButton @click="deleteGame(game.id)"> Delete </GqButton>
+                <GqButtonDelete @click="deleteGame(game.id)"> Delete </GqButtonDelete>
             </li>
         </ul>
     </GqContainer>
@@ -28,8 +28,7 @@
 import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
-import GqButton from '@/components/UI/GqButton'
-
+import GqButtonDelete from '@/components/UI/GqButtonDelete'
 const {games, deleteGame} = useGameList()
 </script>
 
