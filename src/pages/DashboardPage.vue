@@ -19,11 +19,10 @@
                     <p>{{ game.description }}</p>
                 </div>
                 <div class="group-btn">
-                    <GqButtonDelete @click="deleteGame(game.id)">Delete</GqButtonDelete>
-                    <select
-                        v-model="game.status"
-                        @change="setStatus(game)"
+                    <GqButtonDelete @click="deleteGame(game.id)"
+                        >Delete</GqButtonDelete
                     >
+                    <select v-model="game.status" @change="setStatus(game)">
                         <option>New</option>
                         <option>Playing</option>
                         <option>Finished</option>
@@ -38,7 +37,7 @@
 import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
-import GqButtonDelete from '@/components/UI/GqButtonDelete';
+import GqButtonDelete from '@/components/UI/GqButtonDelete'
 
 const {games, deleteGame, setStatus} = useGameList()
 </script>
