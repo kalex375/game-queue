@@ -17,18 +17,17 @@
                             />
                         </div>
                         <div class="pl-4">
-                            <p>{{ element.position }}</p>
                             <h3>{{ element.name }}</h3>
                             <h4>{{ element.developers }}</h4>
                             <p>{{ element.description }}</p>
                         </div>
                         <div class="group-btn">
-                            <GqButtonDelete @click="deleteGame(game.id)"
+                            <GqButtonDelete @click="deleteGame(element.id)"
                                 >Delete</GqButtonDelete
                             >
                             <select
-                                v-model="game.status"
-                                @change="setStatus(game)"
+                                v-model="element.status"
+                                @change="setStatus(element)"
                             >
                                 <option>New</option>
                                 <option>Playing</option>
