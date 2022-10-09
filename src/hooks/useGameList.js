@@ -16,14 +16,8 @@ export default function useGameList() {
         await client.records.delete('games', `${gameId}`)
         await getGames()
     }
-    async function setStatus(game) {
-        if (game.status === 'new') {
-            game.status = 'playing'
-        } else if (game.status === 'playing') {
-            game.status = 'finished'
-        }
+    async function setStatus(game ) {
         await client.records.update('games', game.id, game);
-        console.log(game.status)
     }
 
     onMounted(getGames)
@@ -31,6 +25,6 @@ export default function useGameList() {
         games,
         getGames,
         deleteGame,
-        setStatus
+        setStatus,
     }
 }

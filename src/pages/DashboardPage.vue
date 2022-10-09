@@ -13,16 +13,21 @@
                         :alt="game.name"
                     />
                 </div>
-                <div class="pl-4 game-info">
+                <div class="pl-4">
                     <h3>{{ game.name }}</h3>
                     <h4>{{ game.developers }}</h4>
                     <p>{{ game.description }}</p>
                 </div>
                 <div class="group-btn">
                     <GqButtonDelete @click="deleteGame(game.id)">Delete</GqButtonDelete>
-                    <GqButton v-if="isNewStatus(game.status)" @click="setStatus(game)">Playing</GqButton>
-                    <GqButton v-if="isPlayingStatus(game.status)" @click="setStatus(game)">Finished</GqButton>
-                    <GqButton v-if="isFinishStatus(game.status)" class="btn--disabled" disabled>Finished</GqButton>
+                    <select
+                        v-model="game.status"
+                        @change="setStatus(game)"
+                    >
+                        <option>New</option>
+                        <option>Playing</option>
+                        <option>Finished</option>
+                    </select>
                 </div>
             </li>
         </ul>
@@ -33,23 +38,9 @@
 import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
-import GqButton from '@/components/UI/GqButton'
-import GqButtonDelete from "@/components/UI/GqButtonDelete";
+import GqButtonDelete from '@/components/UI/GqButtonDelete';
 
 const {games, deleteGame, setStatus} = useGameList()
-
-function isNewStatus(status) {
-    if (status !== 'new') return false
-    return true
-}
-function isPlayingStatus(status) {
-    if (status !== 'playing') return false
-    return true
-}
-function isFinishStatus(status) {
-    if (status !== 'finished') return false
-    return true
-}
 </script>
 
 <style lang="scss" scoped>
@@ -63,13 +54,23 @@ function isFinishStatus(status) {
         }
     }
 }
-.game-info {
-
-}
 .group-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 10px;
 }
-
+select {
+    padding: 15px 20px;
+    background: #49586a;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    color: #eeeeee;
+    font-family: 'Nunito Sans';
+    &:hover {
+        transition: 200ms;
+        opacity: 0.9;
+    }
+}
 </style>
