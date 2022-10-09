@@ -18,7 +18,16 @@
                     <h4>{{ game.developers }}</h4>
                     <p>{{ game.description }}</p>
                 </div>
-                <GqButton @click="deleteGame(game.id)"> Delete </GqButton>
+                <div class="group-btn">
+                    <GqButtonDelete @click="deleteGame(game.id)"
+                        >Delete</GqButtonDelete
+                    >
+                    <select v-model="game.status" @change="setStatus(game)">
+                        <option>New</option>
+                        <option>Playing</option>
+                        <option>Finished</option>
+                    </select>
+                </div>
             </li>
         </ul>
     </GqContainer>
@@ -28,9 +37,9 @@
 import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
-import GqButton from '@/components/UI/GqButton'
+import GqButtonDelete from '@/components/UI/GqButtonDelete'
 
-const {games, deleteGame} = useGameList()
+const {games, deleteGame, setStatus} = useGameList()
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +51,25 @@ const {games, deleteGame} = useGameList()
         img {
             max-height: 230px;
         }
+    }
+}
+.group-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+select {
+    padding: 15px 20px;
+    background: #49586a;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    color: #eeeeee;
+    font-family: 'Nunito Sans';
+    &:hover {
+        transition: 200ms;
+        opacity: 0.9;
     }
 }
 </style>
