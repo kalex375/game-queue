@@ -1,7 +1,8 @@
 <template>
+  <form @submit.prevent="signUp">
     <GqPanel>
         <h3>Sign Up</h3>
-        <GqInput v-model="username" type="textp" placeholder="Username" />
+        <GqInput v-model="username" type="text" placeholder="Username" />
         <GqInput v-model="email" type="email" placeholder="Email" />
         <GqInput v-model="password" type="password" placeholder="Password" />
         <GqInput
@@ -9,24 +10,42 @@
             type="password"
             placeholder="Confirm password"
         />
-        <GqButton>Sign Up</GqButton>
+        <GqButton type="submit" @submit="signUp">Sign Up</GqButton>
+
         <p class="m-auto">
             Already have an anccount?
-            <router-link class="sign-up" :to="{name: 'sign-in'}"
+            <router-link  class="sign-up" :to="{name: 'sign-in'}"
                 >Sign In</router-link
             >
         </p>
     </GqPanel>
+  </form>
 </template>
 
 <script setup>
 import {ref} from 'vue'
+import useLoginUser from "@/hooks/useLoginUser";
+import router from "@/router/router";
 
+const {createUser} = useLoginUser()
 const username = ref('')
 const email = ref('')
 const password = ref('')
 const confirmPassword = ref('')
+
+async function signUp() {
+  const isAuth = await createUser(password.value, email.value, confirmPassword.value, username.value)
+
+  if (isAuth) {
+    router.push({name: 'dashboard'})
+  } else {
+    router.push({name: 'sign-up'})
+  }
+}
+
 // const isRememberMe = ref(false);
+
+
 </script>
 
 <style scoped lang="scss">
