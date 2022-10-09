@@ -19,7 +19,7 @@ export default function useGameList() {
         await getGames()
     }
     async function updateGame(game) {
-        await client.records.update('games', game.id, game);
+        await client.records.update('games', game.id, game)
     }
     async function setStatus(game) {
         await client.records.update('games', game.id, game)
