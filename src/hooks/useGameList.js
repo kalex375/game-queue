@@ -21,12 +21,16 @@ export default function useGameList() {
     async function updateGame(game) {
         await client.records.update('games', game.id, game);
     }
+    async function setStatus(game) {
+        await client.records.update('games', game.id, game)
+    }
 
     onMounted(getGames)
     return {
         games,
         getGames,
         deleteGame,
-        updateGame
+        updateGame,
+        setStatus,
     }
 }
