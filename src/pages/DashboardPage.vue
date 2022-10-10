@@ -16,7 +16,7 @@
                                 :alt="element.name"
                             />
                         </div>
-                        <div class="pl-4">
+                        <div class="pl-4 game-list__game-info">
                             <h3>{{ element.name }}</h3>
                             <h4>{{ element.developers }}</h4>
                             <p>{{ element.description }}</p>
@@ -68,12 +68,16 @@ function onStop() {
             max-height: 230px;
         }
     }
+    &__game-info {
+        margin-right: 1rem;
+    }
 }
 .group-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px;
+    margin-left: auto;
+    gap: 1rem;
 }
 select {
     padding: 15px 20px;
