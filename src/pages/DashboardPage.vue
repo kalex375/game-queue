@@ -27,7 +27,7 @@
                             >
                             <select
                                 v-model="element.status"
-                                @change="setStatus(element)"
+                                @change="updateGame(element)"
                             >
                                 <option>New</option>
                                 <option>Playing</option>
@@ -48,7 +48,7 @@ import GqContainer from '@/components/UI/GqContainer.vue'
 import GqButtonDelete from '@/components/UI/GqButtonDelete'
 import draggable from 'vuedraggable'
 
-const {games, deleteGame, updateGame, setStatus} = useGameList()
+const {games, deleteGame, updateGame} = useGameList()
 
 function onStop() {
     games.list.forEach((game, index) => {
