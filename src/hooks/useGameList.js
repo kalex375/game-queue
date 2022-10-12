@@ -26,7 +26,6 @@ export default function useGameList() {
         const data = {
             name: game.name,
             release_date: new Date(game.first_release_date),
-            developers: '',
             field: null,
             description: game.summary,
             position: '1',
@@ -44,7 +43,6 @@ export default function useGameList() {
                 gamesAxios.value = response.data
             ))
             .catch(error => console.log(error))
-        console.log(gamesAxios)
     }
     // async function searchedGames(searchedQuery) {
     //     await axios.get(`http://game-queue.com:3030/igdb/search?q=${searchedQuery}`).then(response => (searchedGame.value = response.data))
