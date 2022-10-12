@@ -44,6 +44,7 @@ const routes = [
     {
         path: '/add-game',
         name: 'add-game',
+        meta: {requiresAuth: true},
         component: () => import('@/pages/AddGamePage.vue'),
     },
 ]
