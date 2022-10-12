@@ -5,33 +5,41 @@
             <GqButton @click="$router.push({name: 'add-game'})">Add game</GqButton>
         </nav>
         <ul>
-            <li
-                class="game-list mt-4 p-3"
-                v-for="game in games.list"
-                :key="game.id"
+            <draggable
+                v-model="games.list"
+                group="games"
+                @end="onStop"
+                item-key="id"
             >
-                <div class="game-list__game-image">
-                    <img
-                        :src="`http://game-queue.com:8888/api/files/games/${game.id}/${game.field}?thumb=100x350`"
-                        :alt="game.name"
-                    />
-                </div>
-                <div class="pl-4">
-                    <h3>{{ game.name }}</h3>
-                    <h4>{{ game.developers }}</h4>
-                    <p>{{ game.description }}</p>
-                </div>
-                <div class="group-btn">
-                    <GqButtonDelete @click="deleteGame(game.id)"
-                        >Delete</GqButtonDelete
-                    >
-                    <select v-model="game.status" @change="setStatus(game)">
-                        <option>New</option>
-                        <option>Playing</option>
-                        <option>Finished</option>
-                    </select>
-                </div>
-            </li>
+                <template #item="{element}">
+                    <li class="game-list mt-4 p-3">
+                        <div class="game-list__game-image">
+                            <img
+                                :src="`http://game-queue.com:8888/api/files/games/${element.id}/${element.field}?thumb=100x350`"
+                                :alt="element.name"
+                            />
+                        </div>
+                        <div class="pl-4 game-list__game-info">
+                            <h3>{{ element.name }}</h3>
+                            <h4>{{ element.developers }}</h4>
+                            <p>{{ element.description }}</p>
+                        </div>
+                        <div class="group-btn">
+                            <GqButtonDelete @click="deleteGame(element.id)"
+                                >Delete</GqButtonDelete
+                            >
+                            <select
+                                v-model="element.status"
+                                @change="updateGame(element)"
+                            >
+                                <option>New</option>
+                                <option>Playing</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                    </li>
+                </template>
+            </draggable>
         </ul>
     </GqContainer>
 </template>
@@ -41,9 +49,16 @@ import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
 import GqButtonDelete from '@/components/UI/GqButtonDelete'
-import GqButton from "@/components/UI/GqButton";
+import draggable from 'vuedraggable'
 
-const {games, deleteGame, setStatus} = useGameList()
+const {games, deleteGame, updateGame} = useGameList()
+console.log(games.list)
+function onStop() {
+    games.list.forEach((game, index) => {
+        game.position = index + 1
+        updateGame(game)
+    })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -56,12 +71,16 @@ const {games, deleteGame, setStatus} = useGameList()
             max-height: 230px;
         }
     }
+    &__game-info {
+        margin-right: 1rem;
+    }
 }
 .group-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px;
+    margin-left: auto;
+    gap: 1rem;
 }
 select {
     padding: 15px 20px;

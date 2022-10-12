@@ -14,7 +14,8 @@
     "parse": "^3.4.4",
     "pocketbase": "^0.7.1",
     "vue": "^3.2.13",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

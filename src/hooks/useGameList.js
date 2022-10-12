@@ -11,15 +11,17 @@ export default function useGameList() {
     let gamesAxios = ref({})
    // let searchedGame = ref([])
     async function getGames() {
-        const records = await client.records.getFullList('games')
+        const records = await client.records.getFullList('games', '', {
+            sort: `position`,
+        })
         games.list = records
         return games
     }
     async function deleteGame(gameId) {
-        await client.records.delete('games', `${gameId}`)
+        await client.records.delete('games', gameId)
         await getGames()
     }
-    async function setStatus(game) {
+    async function updateGame(game) {
         await client.records.update('games', game.id, game)
     }
     async function addGame(game) {
@@ -55,9 +57,8 @@ export default function useGameList() {
         gamesAxios,
         getGames,
         deleteGame,
-        setStatus,
         showGames,
         addGame,
-       // searchedGames
+        updateGame,
     }
 }
