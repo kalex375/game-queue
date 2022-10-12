@@ -1,6 +1,9 @@
 <template>
     <GqHeader></GqHeader>
     <GqContainer class="m-auto">
+        <nav class="nav">
+            <GqButton @click="$router.push({name: 'add-game'})">Add game</GqButton>
+        </nav>
         <ul>
             <li
                 class="game-list mt-4 p-3"
@@ -38,6 +41,7 @@ import GqHeader from '@/components/UI/GqHeader.vue'
 import useGameList from '@/hooks/useGameList'
 import GqContainer from '@/components/UI/GqContainer.vue'
 import GqButtonDelete from '@/components/UI/GqButtonDelete'
+import GqButton from "@/components/UI/GqButton";
 
 const {games, deleteGame, setStatus} = useGameList()
 </script>
@@ -71,5 +75,12 @@ select {
         transition: 200ms;
         opacity: 0.9;
     }
+}
+.nav {
+    margin-top: 5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background: $color_bg
 }
 </style>

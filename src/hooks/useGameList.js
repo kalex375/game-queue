@@ -1,5 +1,6 @@
 import PocketBase from 'pocketbase'
-import {onMounted, reactive} from 'vue'
+import { onMounted, reactive, ref} from 'vue'
+import axios from "axios"
 
 const client = new PocketBase('http://game-queue.com:8888')
 
@@ -7,6 +8,8 @@ export default function useGameList() {
     let games = reactive({
         list: [],
     })
+    let gamesAxios = ref({})
+   // let searchedGame = ref([])
     async function getGames() {
         const records = await client.records.getFullList('games')
         games.list = records
@@ -19,12 +22,44 @@ export default function useGameList() {
     async function setStatus(game) {
         await client.records.update('games', game.id, game)
     }
+    async function addGame(game) {
+        const data = {
+            name: game.name,
+            release_date: new Date(game.first_release_date),
+            developers: '',
+            field: null,
+            description: game.summary,
+            position: '1',
+            user: client.authStore.model.id,
+            status: 'New'
+        }
+        console.log(data)
+        await client.records.create('games', data)
+    }
 
-    onMounted(getGames)
+
+    async function showGames() {
+        await axios.get('http://game-queue.com:3030/igdb/search?q=halo%20infinite')
+            .then(response => (
+                gamesAxios.value = response.data
+            ))
+            .catch(error => console.log(error))
+        console.log(gamesAxios)
+    }
+    // async function searchedGames(searchedQuery) {
+    //     await axios.get(`http://game-queue.com:3030/igdb/search?q=${searchedQuery}`).then(response => (searchedGame.value = response.data))
+    //     console.log(searchedGame)
+    // }
+
+    onMounted(getGames, showGames)
     return {
         games,
+        gamesAxios,
         getGames,
         deleteGame,
         setStatus,
+        showGames,
+        addGame,
+       // searchedGames
     }
 }

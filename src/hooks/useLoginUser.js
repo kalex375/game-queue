@@ -3,6 +3,7 @@ import {reactive} from 'vue'
 
 const client = new Pocketbase('http://game-queue.com:8888')
 const user = reactive({
+    id: '',
     token: '',
     email: '',
 })
@@ -14,6 +15,7 @@ export default function useLoginUser() {
                 email.value,
                 password.value
             )
+            user.id = userAuthData1.user.id
             user.token = userAuthData1.token
             user.email = userAuthData1.user.email
             return true
