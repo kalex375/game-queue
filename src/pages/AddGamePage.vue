@@ -7,10 +7,10 @@
                placeholder="Name of the game"
            >
            </GqInput>
-<!--           <GqButton @click="searchedGames(searchQuery)">Search</GqButton>-->
+           <GqButton @click="onSearchedGame">Search</GqButton>
        </div>
             <ul class="mt-5">
-                <li v-for="game in gamesAxios" :key="game.id">
+                <li v-for="game in games" :key="game.id">
                     <div>
                         <img :src="game.cover.url">
                     </div>
@@ -29,10 +29,15 @@ import GqHeader from "@/components/UI/GqHeader"
 import useGameList from "@/hooks/useGameList"
 import {ref} from "vue";
 
-const {showGames, gamesAxios, addGame} = useGameList()
-showGames()
+const {searchedGames, addGame} = useGameList()
 
+let games = ref([])
 const searchQuery = ref('')
+
+async function onSearchedGame() {
+   games.value = await searchedGames(searchQuery)
+}
+
 
 </script>
 

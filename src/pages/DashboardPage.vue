@@ -52,7 +52,7 @@ import GqButtonDelete from '@/components/UI/GqButtonDelete'
 import draggable from 'vuedraggable'
 
 const {games, deleteGame, updateGame} = useGameList()
-console.log(games.list)
+
 function onStop() {
     games.list.forEach((game, index) => {
         game.position = index + 1
