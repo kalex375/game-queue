@@ -1,16 +1,14 @@
 <template>
     <GqHeader></GqHeader>
     <GqContainer class="m-auto">
-        <GqGameList/>
+        <GqGameList />
     </GqContainer>
 </template>
 
 <script setup>
 import GqHeader from '@/components/UI/GqHeader.vue'
 import GqContainer from '@/components/UI/GqContainer.vue'
-import GqGameList from "@/pages/GqGameList";
-
-
+import GqGameList from '@/pages/GqGameList'
 </script>
 
 <style lang="scss" scoped>
