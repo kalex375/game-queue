@@ -12,17 +12,16 @@
             <p>{{ props.modelValue.description }}</p>
             <vue-tags-input
                 :tags="props.modelValue.tags"
-                @tags-changed="newTags => addTags(props.modelValue, newTags)"
+                @tags-changed="newTags => addTags(newTags)"
             />
         </div>
         <div class="group-btn">
-            <GqButtonDelete @click="deleteGame(props.modelValue.id)"
-            >Delete
-            </GqButtonDelete
-            >
+            <GqButtonDelete @click="$emit('delete', props.modelValue)"
+                >Delete
+            </GqButtonDelete>
             <select
                 :value="props.modelValue.status"
-                @change="onUpdateGame(props.modelValue)"
+                @change="onChangeStatus($event.target.value)"
             >
                 <option>New</option>
                 <option>Playing</option>
@@ -33,25 +32,25 @@
 </template>
 
 <script setup>
-import {defineProps} from 'vue'
+import {defineEmits, defineProps} from 'vue'
 import GqButtonDelete from '@/components/UI/GqButtonDelete'
-import VueTagsInput from "@sipec/vue3-tags-input";
-import useGameList from "@/hooks/useGameList";
+import VueTagsInput from '@sipec/vue3-tags-input'
 
-const {deleteGame, updateGame} = useGameList()
-
-function addTags(game, newTags) {
-    game.tags = newTags
-    updateGame(game)
-}
-
-async function onUpdateGame(game) {
-   await updateGame(game)
-}
+const emit = defineEmits(['update:modelValue', 'delete'])
 
 const props = defineProps({
-    modelValue: [Object]
+    modelValue: [Object],
 })
+
+async function addTags(newTags) {
+    const newGame = {...props.modelValue, tags: newTags}
+    emit('update:modelValue', newGame)
+}
+
+function onChangeStatus(status) {
+    const game = {...props.modelValue, status}
+    emit('update:modelValue', game)
+}
 </script>
 <style lang="scss" scoped>
 @import '@/assets/variables.scss';

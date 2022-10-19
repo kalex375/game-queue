@@ -7,20 +7,27 @@
             item-key="id"
         >
             <template #item="{element}">
-                <GqGameItem :modelValue="element"/>
+                <GqGameItem
+                    :modelValue="element"
+                    @update:modelValue="onUpdateGame"
+                    @delete="deleteGame($event.id)"
+                />
             </template>
         </draggable>
     </ul>
 </template>
 
 <script setup>
-import useGameList from "@/hooks/useGameList";
-import {onMounted} from "vue";
-import GqGameItem from "@/pages/GqGameItem";
+import useGameList from '@/hooks/useGameList'
+import {onMounted} from 'vue'
+import GqGameItem from '@/pages/GqGameItem'
 import draggable from 'vuedraggable'
 
-const {games, updateGame, getGames} = useGameList()
+const {games, updateGame, getGames, deleteGame} = useGameList()
 
+async function onUpdateGame(updatedGame) {
+    await updateGame(updatedGame)
+}
 
 onMounted(getGames)
 function onStop() {
