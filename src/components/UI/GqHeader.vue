@@ -7,7 +7,7 @@
                     src="https://www.klerk.ru/images/noavatar.webp"
                     alt="avatar"
                 />
-                <p>{{ user.email }}</p>
+                <p :key="user.id">{{ user.email }}</p>
             </a>
             <GqButton @click="onLogout()">Logout</GqButton>
         </div>

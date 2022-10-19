@@ -1,6 +1,11 @@
 <template>
     <GqHeader></GqHeader>
     <GqContainer class="m-auto">
+        <nav class="nav">
+            <GqButton @click="$router.push({name: 'add-game'})"
+                >Add game</GqButton
+            >
+        </nav>
         <ul>
             <draggable
                 v-model="games.list"
@@ -11,10 +16,7 @@
                 <template #item="{element}">
                     <li class="game-list mt-4 p-3">
                         <div class="game-list__game-image">
-                            <img
-                                :src="`http://game-queue.com:8888/api/files/games/${element.id}/${element.field}?thumb=100x350`"
-                                :alt="element.name"
-                            />
+                            <img :src="element.cover_url" :alt="element.name" />
                         </div>
                         <div class="pl-4 game-list__game-info">
                             <h3>{{ element.name }}</h3>
@@ -91,5 +93,12 @@ select {
         transition: 200ms;
         opacity: 0.9;
     }
+}
+.nav {
+    margin-top: 5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background: $color_bg;
 }
 </style>
