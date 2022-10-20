@@ -1,7 +1,5 @@
 <template>
-    <div>
         <RegistrationForm></RegistrationForm>
-    </div>
 </template>
 
 <script setup>

@@ -1,6 +1,11 @@
 <template>
     <GqHeader></GqHeader>
     <GqContainer class="m-auto">
+        <nav class="nav">
+            <GqButton @click="$router.push({name: 'add-game'})"
+                >Add game
+            </GqButton>
+        </nav>
         <GqGameList />
     </GqContainer>
 </template>
@@ -25,5 +30,12 @@ select {
         transition: 200ms;
         opacity: 0.9;
     }
+}
+.nav {
+    margin-top: 5rem;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background: $color_bg;
 }
 </style>
