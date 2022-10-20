@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase'
-import {onMounted, reactive, ref, unref} from 'vue'
+import {reactive, ref, unref} from 'vue'
 import axios from 'axios'
 
 const client = new PocketBase('http://game-queue.com:8888')
@@ -14,6 +14,7 @@ export default function useGameList() {
             sort: `position`,
         })
         games.list = records
+        console.log(games.list)
         return games
     }
     async function deleteGame(gameId) {
@@ -31,9 +32,9 @@ export default function useGameList() {
             position: games.list[games.list.length - 1].position + 1,
             user: client.authStore.model.id,
             status: 'New',
+            tags: [],
         }
         console.log(game)
-        console.log(data)
         await client.records.create('games', data)
         await getGames()
     }
@@ -44,10 +45,6 @@ export default function useGameList() {
         searchedGames.value = response.data
         return searchedGames
     }
-
-    onMounted(() => {
-        getGames()
-    })
 
     return {
         games,

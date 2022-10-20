@@ -26,16 +26,21 @@
 <script setup>
 import GqHeader from '@/components/UI/GqHeader'
 import useGameList from '@/hooks/useGameList'
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 
-const {searchGames, addGame, searchedGames} = useGameList()
+const {searchGames, addGame, searchedGames, getGames} = useGameList()
 
 const searchQuery = ref('')
 
 async function onSearchedGame() {
     await searchGames(searchQuery)
 }
+
 onSearchedGame()
+
+onMounted(() => {
+    getGames()
+})
 </script>
 
 <style scoped lang="scss">

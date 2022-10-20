@@ -33,18 +33,18 @@ export default function useLoginUser() {
         user.email = ''
     }
     async function createUser(password, email, confirmPassword, username) {
-       try {
-           if (password !== confirmPassword) return false
-          await client.users.create({
-               email: email,
-               password: password,
-               passwordConfirm: confirmPassword,
-                name: username
-           });
-           return true
-       } catch(e) {
+        try {
+            if (password !== confirmPassword) return false
+            await client.users.create({
+                email: email,
+                password: password,
+                passwordConfirm: confirmPassword,
+                name: username,
+            })
+            return true
+        } catch (e) {
             return false
-       }
+        }
     }
     return {
         user,
@@ -52,6 +52,5 @@ export default function useLoginUser() {
         checkUser,
         logout,
         createUser,
-
     }
 }
