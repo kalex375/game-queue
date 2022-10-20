@@ -2,7 +2,7 @@
     <li class="game-list mt-4 p-3">
         <div class="game-list__game-image">
             <img
-                :src="`http://game-queue.com:8888/api/files/games/${props.modelValue.id}/${props.modelValue.field}?thumb=100x350`"
+                :src="props.modelValue.cover_url"
                 :alt="props.modelValue.name"
             />
         </div>

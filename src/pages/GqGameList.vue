@@ -29,7 +29,10 @@ async function onUpdateGame(updatedGame) {
     await updateGame(updatedGame)
 }
 
-onMounted(getGames)
+onMounted(() => {
+    getGames()
+})
+
 function onStop() {
     games.list.forEach((game, index) => {
         game.position = index + 1
